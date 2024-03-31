@@ -404,9 +404,7 @@ In it same code would be there in function form...that function we call in anoth
 
 RESULT: 
 
-![alt text](Reference_img/WebApp_video.gif)
-
-
+![alt text](Reference_img/WebPage.gif)
 ----------------------------------------------------------------------------
 Happy coding! 🎉
 
