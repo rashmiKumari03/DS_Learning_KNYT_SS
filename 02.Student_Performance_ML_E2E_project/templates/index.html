@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title style="font-size: 24px; font-weight: bold; margin-top: 10px;">Welcome to Data Science Project</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+        }
+
+        .banner {
+            position: relative;
+            width: 100%;
+            height: 100vh; /* Set height to viewport height */
+        }
+
+        #video-background {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensure the video covers the entire container */
+            z-index: 0; /* Ensure video is behind overlay */
+        }
+
+        .content {
+            position: fixed;
+            font-size: large;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            color: black; /* Example text color */
+            z-index: 1; /* Ensure content is above the video */
+        }
+
+        .prediction-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .prediction-button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="banner">
+        <video autoplay muted loop id="video-background">
+            <source src="{{ url_for('static', filename='sp1_video.mp4') }}" type="video/mp4">
+        </video>
+        <div class="content">
+            <h1 style="font-size: 43px; font-weight: bold;">Welcome To Predict Student's Performance in Maths</h1>
+            <h2 style="font-size: 20px;">This project aims to predict student performance in mathematics exams based on various factors such as gender, race or ethnicity, parental level of education, lunch type, test preparation course, writing score, and reading score.</h2>
+            <a class="prediction-button" href="http://127.0.0.1:8000/predict_datapoint">Make Prediction</a>
+
+        </div>
+    </div>
+</body>
+</html>

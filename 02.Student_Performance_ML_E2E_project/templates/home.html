@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        body {
+            font-size: 12px; /* Increased font size */
+            font-weight: bold; /* Bold font weight */
+            overflow: hidden; /* Hide overflow to prevent scroll bars */
+    
+        }
+
+        .login {
+            width:52%;
+            margin: auto;
+            padding: 2px;
+            background-color: transparent; /* Transparent background for form */
+            text-align: center;
+            position: absolute;
+            top: 1%;
+            left: 10%;
+            transform: translate(-5%, 5%);
+        }
+
+        .mb-3 {
+            margin-bottom: 10px;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            text-align: left;
+            font-size: 12px;
+            color:wheat;
+
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 5px;
+            border-radius: 20px;
+            box-sizing: border-box;
+            font-size: 12px; /* Increased font size */
+            font-weight: bold; /* Bold font weight */
+        }
+
+        .btn-primary {
+            background-color:plum;
+            color:black;
+            padding: 5px 10px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 20px; /* Increased font size */
+            font-weight: bold; /* Bold font weight */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            font-size: 30px; /* Increased font size */
+            font-weight: bold; /* Bold font weight */
+            font-style: italic;
+            color:white;
+        }
+
+        
+        #video-background {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            min-width: 100%;
+            min-height: 100%;
+            width: auto;
+            height: auto;
+            z-index: -1;
+        }
+
+        /* Prediction box styles remain unchanged */
+        .prediction-box {
+            position: absolute;
+            top: 40%;
+            right: 0%;
+            transform: translate(-25%,-25%);
+            background-color: plum;
+            padding: 10px;
+            border-radius: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); /* Add shadow effect */
+        }
+
+        .prediction-box h2,
+        .prediction-box p {
+            font-size: 13px; /* Increase font size */
+            
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login">
+        <h1>Student's Math_Score Performance Prediction </h1>
+        <video autoplay muted loop id="video-background">
+            <source src="{{ url_for('static', filename='sp2_video.mp4') }}" type="video/mp4">
+        </video>
+
+        <form action="{{ url_for('predict_datapoint')}}" method="post">
+            <div class="mb-3">
+                <label class="form-label">Gender</label>
+                <select class="form-control" name="gender" placeholder="Enter your Gender" required>
+                    <option class="placeholder" selected disabled value="">Select your Gender</option>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Race or Ethnicity</label>
+                <select class="form-control" name="ethnicity" placeholder="Enter your Ethnicity" required>
+                    <option class="placeholder" selected disabled value="">Select Ethnicity</option>
+                    <option value="group A">Group A</option>
+                    <option value="group B">Group B</option>
+                    <option value="group C">Group C</option>
+                    <option value="group D">Group D</option>
+                    <option value="group E">Group E</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Parental Level of Education</label>
+                <select class="form-control" name="parental_level_of_education" placeholder="Enter your Parent Education" required>
+                    <option class="placeholder" selected disabled value="">Select Parent Education</option>
+                    <option value="associate's degree">Associate's degree</option>
+                    <option value="bachelor's degree">Bachelor's degree</option>
+                    <option value="high school">High school</option>
+                    <option value="master's degree">Master's degree</option>
+                    <option value="some college">Some college</option>
+                    <option value="some high school">Some high school</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Lunch Type</label>
+                <select class="form-control" name="lunch" placeholder="Enter your Lunch" required>
+                    <option class="placeholder" selected disabled value="">Select Lunch Type</option>
+                    <option value="free/reduced">Free/reduced</option>
+                    <option value="standard">Standard</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Test Preparation Course</label>
+                <select class="form-control" name="test_preparation_course" placeholder="Enter your Course" required>
+                    <option class="placeholder" selected disabled value="">Select Test Course</option>
+                    <option value="none">None</option>
+                    <option value="completed">Completed</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Writing Score out of 100</label>
+                <input class="form-control" type="number" name="reading_score" placeholder="Enter your Writing score" min="0" max="100" />
+            </div>
+            <div class="mb-3">
+                <label class="form-label">Reading Score out of 100</label>
+                <input class="form-control" type="number" name="writing_score" placeholder="Enter your Reading score" min="0" max="100" />
+            </div>
+            <div class="mb-3">
+                <input class="btn btn-primary" type="submit" value="Predict your Math Score" required />
+            </div>
+        </form>
+        <h2 class="prediction-label">
+            <!-- Prediction label remains unchanged -->
+        </h2>
+    </div>
+
+    <!-- Prediction box -->
+    
+    <div class="prediction-box">
+        <h2 style="text-align: center; font-weight: bold; font-size: large;">Prediction Result</h2>
+        <p><strong>Gender:</strong> {{gender }}</p>
+        <p><strong>Race or Ethnicity:</strong> {{race_ethnicity }}</p>
+        <p><strong>Parental Level of Education:</strong> {{parental_level_of_education }}</p>
+        <p><strong>Lunch Type:</strong> {{ lunch }}</p>
+        <p><strong>Test Preparation Course:</strong> {{test_preparation_course }}</p>
+        <p><strong>Writing Score:</strong> {{writing_score }}</p>
+        <p><strong>Reading Score:</strong> {{reading_score }}</p>
+        {% if result %}
+        <h3>Predicted Math Score : {{ result }}</h3>
+        {% endif %}
+    </div>
+
+</body>
+
+</html>
