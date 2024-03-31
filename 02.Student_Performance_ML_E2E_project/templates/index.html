@@ -45,8 +45,10 @@
             border: none;
             border-radius: 5px;
             cursor: pointer;
+           
             transition: background-color 0.3s;
         }
+        
 
         .prediction-button:hover {
             background-color: #45a049;
@@ -59,8 +61,8 @@
             <source src="{{ url_for('static', filename='sp1_video.mp4') }}" type="video/mp4">
         </video>
         <div class="content">
-            <h1 style="font-size: 43px; font-weight: bold;">Welcome To Predict Student's Performance in Maths</h1>
-            <h2 style="font-size: 20px;">This project aims to predict student performance in mathematics exams based on various factors such as gender, race or ethnicity, parental level of education, lunch type, test preparation course, writing score, and reading score.</h2>
+            <h1 style="font-size:40px; font-weight: bold ;font-style: italic">Welcome to our Student's Performance Prediction System</h1>
+            <h2 style="font-size: 17px;">This project aims to predict student performance in mathematics exams based on various factors such as gender, race or ethnicity, parental level of education, lunch type, test preparation course, writing score, and reading score.</h2>
             <a class="prediction-button" href="http://127.0.0.1:8000/predict_datapoint">Make Prediction</a>
 
         </div>

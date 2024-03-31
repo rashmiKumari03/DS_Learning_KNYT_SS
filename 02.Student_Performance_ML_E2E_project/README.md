@@ -5,7 +5,7 @@
 
 
 # WebPage Looks:
-![alt text](Reference_img/webapp_sp_home.png)
+
 
 
 ![alt text](Reference_img/webapp_sp_pred.png)
