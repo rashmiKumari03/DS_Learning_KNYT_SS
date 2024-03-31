@@ -386,7 +386,16 @@ Till now we have used app.py for execution of all .py components files....but no
 In it same code would be there in function form...that function we call in another file "main_train.py"
 
 ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+# Finally : To Run the Application:
+* Go to cmd
+* Activate envirnoment
+* Run python main_app.py
+* We will get http://127.0.0.1:8000 and here we have this webpage:
+
 RESULT: 
+<video controls src="Reference_img/WebApp_video.mp4" title="Title"></video>
+
 
 
 
