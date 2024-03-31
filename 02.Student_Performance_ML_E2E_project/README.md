@@ -6,7 +6,7 @@
 
 # WebPage Looks:
 
-
+![alt text](Reference_img/webapp_sp_home.png)
 
 ![alt text](Reference_img/webapp_sp_pred.png)
 
@@ -403,6 +403,7 @@ In it same code would be there in function form...that function we call in anoth
 * We will get http://127.0.0.1:8000 and here we have this webpage:
 
 RESULT: 
+
 ![alt text](Reference_img/WebApp_video.gif)
 
 
