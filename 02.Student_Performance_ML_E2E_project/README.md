@@ -4,7 +4,7 @@
 
 
 
-# How the WebPage Looks:
+# WebPage Looks:
 ![alt text](Reference_img/webapp_sp_home.png)
 
 
