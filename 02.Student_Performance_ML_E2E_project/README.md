@@ -397,6 +397,10 @@ RESULT:
 ![alt text](Reference_img/WebApp_video.gif)
 
 
+<video controls src="Reference_img/WebApp_video.mp4" title="Title"></video>
+
+
+
 
 This setup guide aims to streamline the process of initializing a data science project, ensuring proper version control with Git, and maintaining a clean project structure. Happy coding! 🎉
 
